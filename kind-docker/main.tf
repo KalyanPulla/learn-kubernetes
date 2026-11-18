@@ -23,7 +23,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   location              = "Denmark East"
   resource_group_name   = "denmark-east-rg"
   network_interface_ids = [azurerm_network_interface.main.id]
-  size                  = "Standard_D2s_v3"
+  size                  = "Standard_B2ms"
 
   source_image_id = "/subscriptions/396632f7-adca-488d-bb48-22d93391890f/resourceGroups/denmark-east-rg/providers/Microsoft.Compute/galleries/rhel10/images/1.0.0/versions/1.0.0"
 
