@@ -23,7 +23,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   location              = "Denmark East"
   resource_group_name   = "denmark-east-rg"
   network_interface_ids = [azurerm_network_interface.main.id]
-  size                  = "Standard_B1s"
+  size                  = "Standard_D2s_v3"
 
   source_image_id = "/subscriptions/396632f7-adca-488d-bb48-22d93391890f/resourceGroups/denmark-east-rg/providers/Microsoft.Compute/galleries/rhel10/images/1.0.0/versions/1.0.0"
 
@@ -70,7 +70,11 @@ resource "null_resource" "kind-setup" {
         "sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y",
         "sudo systemctl enable docker",
         "sudo systemctl start docker",
-        "sudo usermod -a -G docker devops"
+        "sudo usermod -a -G docker devops",
+        "sudo curl -Lo /bin/kind https://kind.sigs.k8s.io/dl/v0.31.0/kind-linux-amd64",
+        "sudo curl -Lo /bin/kubectl https://dl.k8s.io/release/v1.36.1/bin/linux/amd64/kubectl",
+        "sudo chmod ugo+x /bin/kind /bin/kubectl",
+        "sudo kind create cluster --name rhel10-cluster"
       ]
   }
 }
