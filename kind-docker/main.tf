@@ -53,3 +53,24 @@ variable "vm_name" {
 output "ip" {
   value = azurerm_public_ip.main.ip_address
 }
+
+resource "null_resource" "kind-setup" {
+  depends_on = [ azurerm_linux_virtual_machine.main ]
+
+  provisioner "remote-exec" {
+    connection {
+      type = "ssh"
+      host = azurerm_public_ip.main.ip_address
+      user = "devops"
+      password = "devops@12345"
+    }
+    inline = [
+        "sudo dnf -y install dnf-plugins-core",
+        "sudo dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo",
+        "sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y",
+        "sudo systemctl enable docker",
+        "sudo systemctl start docker",
+        "sudo usermod -a -G docker devops"
+      ]
+  }
+}
