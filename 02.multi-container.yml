@@ -7,4 +7,4 @@ spec:
   - name: myapp1
     image: nginx:alpine
   - name: myapp3
-    image: mysql
+    image: httpd
