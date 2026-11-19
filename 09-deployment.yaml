@@ -2,7 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deploy-app
-  tier: frontend
+  labels:
+    app: deploy-app
+    tier: frontend
+  
 spec:
   selector:
     matchLabels:
