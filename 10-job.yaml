@@ -9,3 +9,4 @@ spec:
       - name: job
         image: redhat/ubi9
         command: ["sleep", "30"]
+      restartPolicy: Never
