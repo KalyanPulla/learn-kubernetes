@@ -4,7 +4,7 @@ metadata:
   name: myapp
 spec:
   containers:
-  - name: myapp
+  - name: myapp1
     image: nginx
-  - name: myapp2
+  - name: myapp3
     image: mysql
