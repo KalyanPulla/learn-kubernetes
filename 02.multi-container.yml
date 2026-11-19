@@ -4,7 +4,7 @@ metadata:
   name: myapp1
 spec:
   containers:
-  - name: app1
+  - name: myapp2
     image: nginx:alpine
-  - name: app2
+  - name: myapp3
     image: redis:alpine
