@@ -7,8 +7,13 @@ spec:
     - name: sample
       emptyDir: {}
   containers:
-  - name: myapp
+  - name: myapp1
     image: nginx
     volumeMounts:
     - mountPath: /usr/share/nginx/html
+      name: sample
+  - name: myapp2
+    image: redis
+    volumeMounts:
+    - mountPath: /opt/
       name: sample
