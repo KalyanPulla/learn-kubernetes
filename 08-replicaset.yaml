@@ -9,11 +9,11 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      key: value
+      key: debug
   template:
     metadata:
       labels:
-        key: value
+        key: ram
     spec:
       containers:
         - name: myapp
