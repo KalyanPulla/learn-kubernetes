@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: pod-initContainer
+  name: pod-init-container
 spec:
   volumes:
     - name: sample
