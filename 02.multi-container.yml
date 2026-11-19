@@ -5,6 +5,6 @@ metadata:
 spec:
   containers:
   - name: myapp1
-    image: nginx
+    image: nginx:alpine
   - name: myapp3
     image: mysql
