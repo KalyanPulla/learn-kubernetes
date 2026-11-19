@@ -7,7 +7,7 @@ spec:
     - name: sample
       emptyDir: {}
   containers:
-  - name: myapp
+  - name: pod-container
     image: nginx:alpine
     volumeMounts:
     - mountPath: /usr/share/nginx/html
